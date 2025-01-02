@@ -1,0 +1,11 @@
+<div class="card mb-3">
+    <div class="card-body">
+        {{ post.content_html|safe }}
+        <div class="d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">{{ post.created }}</small>
+            {% if request.resolver_match.url_name != 'post_detail' %}
+                <a href="{{ post.get_absolute_url }}" class="bi bi-link-45deg">Link</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

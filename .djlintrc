@@ -1,0 +1,4 @@
+{
+    "blank_line_after_tag": "extends",
+    "max_blank_lines": 1
+}

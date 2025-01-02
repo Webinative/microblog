@@ -1,0 +1,40 @@
+networks:
+  microblog-network:
+    driver: bridge
+
+services:
+  microblog-postgres:
+    image: postgres:14.4-alpine
+    container_name: microblog-postgres
+    volumes:
+      - microblog-postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: microblog
+    ports:
+      - "5432:5432"
+    networks:
+      - microblog-network
+
+  microblog-django:
+    build: .
+    user: webinative
+    command: python -u manage.py runserver 0:8000
+    container_name: microblog-django
+    env_file:
+      - ./microblog-django.env
+      - ./.env
+    volumes:
+      - .:/home/webinative/code
+    ports:
+      - "8000:8000"
+      - "3000:3000"
+    restart: on-failure
+    depends_on:
+      - microblog-postgres
+    networks:
+      - microblog-network
+
+volumes:
+  microblog-postgres-data:
