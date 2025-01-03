@@ -134,3 +134,6 @@ styleguide/
 
 # macOS
 .DS_Store
+
+# django
+media/
