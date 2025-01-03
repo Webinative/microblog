@@ -23,7 +23,7 @@ docker compose exec microblog-django bash init_alpha.sh
 
 Visit [http://localhost:8000](http://localhost:8000) from your browser.
 
-[screenshot](static/images/localhost_8000.png)
+![screenshot](static/images/localhost_8000.png)
 
 To check the status of the containers, use the command,
 
