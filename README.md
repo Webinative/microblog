@@ -8,8 +8,8 @@ You can run this project locally on your machine.
 
 ### Software Requirements
 
-1. Docker
-1. docker compose
+1. [Docker](https://docs.docker.com/engine/install/)
+1. [docker compose](https://docs.docker.com/compose/install/)
 
 ### Run
 
